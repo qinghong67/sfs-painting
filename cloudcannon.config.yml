@@ -1,0 +1,7 @@
+paths:
+  static: ''
+  uploads: uploads
+timezone: Australia/Brisbane
+markdown:
+  engine: commonmark
+  options: {}
