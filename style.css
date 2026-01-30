@@ -1,44 +1,35 @@
-/* --- PREMIUM TRADE STYLE (Inspired by AR Painting) --- */
+/* --- BRANDED STYLE (Matches SFS Logo) --- */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap');
 
 :root {
-    /* Brand Colors */
-    --primary-blue: #1e3a5f;    /* Deep, professional Navy */
-    --accent-blue: #3b82f6;     /* Brighter Blue for icons/highlights */
-    --action-gold: #f59e0b;     /* Gold/Orange for Call-to-Actions (High conversion) */
+    /* LOGO COLORS EXTRACTED */
+    --brand-dark-blue: #2c5f85;   /* The House/Shield Color */
+    --brand-light-blue: #7bb0d6;  /* The Paint Swish Color */
+    --brand-dark-grey: #1a1a1a;   /* The "SFS" Text Color */
     
-    /* Neutrals */
-    --dark-text: #111827;
-    --light-text: #4b5563;
+    /* NEUTRALS */
     --white: #ffffff;
-    --off-white: #f3f4f6;
-    --border-color: #e5e7eb;
+    --off-white: #f8fafc;
+    --border-color: #e2e8f0;
 }
 
-/* 1. Global Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: 'Open Sans', sans-serif;
-    color: var(--light-text);
+    color: #334155;
     background-color: var(--white);
-    line-height: 1.7;
-    overflow-x: hidden;
+    line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3 {
     font-family: 'Montserrat', sans-serif;
-    color: var(--dark-text);
+    color: var(--brand-dark-blue);
     font-weight: 800;
-    line-height: 1.2;
 }
 
-/* 2. Sticky Premium Header */
+/* HEADER */
 header {
     background-color: var(--white);
     height: 80px;
@@ -49,67 +40,49 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    border-bottom: 4px solid var(--brand-light-blue); /* The paint swish effect */
 }
 
 .logo {
     font-size: 1.8rem;
     font-weight: 900;
-    color: var(--primary-blue);
+    color: var(--brand-dark-grey); /* Matches "SFS" */
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: -1px;
 }
+.logo span { color: var(--brand-dark-blue); } /* Matches "Shield" */
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-    align-items: center;
-}
+nav ul { list-style: none; display: flex; gap: 20px; }
+nav a { text-decoration: none; color: var(--brand-dark-grey); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; }
 
-/* Hide Nav on very small screens (simple mobile fix) */
-@media (max-width: 768px) {
-    nav ul { display: none; } 
-    /* Ideally you'd add a hamburger menu here later */
-}
-
-nav a {
-    text-decoration: none;
-    color: var(--dark-text);
-    font-weight: 600;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: var(--accent-blue);
-}
-
-/* The "Get a Quote" Button in Header */
+/* BRANDED BUTTONS */
 .cta-btn-header {
-    background-color: var(--action-gold);
+    background-color: var(--brand-dark-blue);
     color: var(--white);
     padding: 10px 25px;
-    border-radius: 50px; /* Pill shape */
+    border-radius: 5px;
     text-decoration: none;
     font-weight: 700;
+}
+
+.btn-primary {
+    background-color: var(--brand-light-blue);
+    color: var(--brand-dark-blue);
+    padding: 15px 40px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 800;
     text-transform: uppercase;
-    font-size: 0.85rem;
-    transition: transform 0.2s, background 0.3s;
+    display: inline-block;
+    transition: 0.3s;
 }
+.btn-primary:hover { background-color: var(--brand-dark-blue); color: var(--white); }
 
-.cta-btn-header:hover {
-    background-color: #d97706;
-    transform: translateY(-2px);
-}
-
-/* 3. Hero Section (The "Wow" Factor) */
+/* HERO SECTION */
 .hero {
-    position: relative;
-    height: 85vh; /* Takes up most of the screen */
-    background: linear-gradient(rgba(30, 58, 95, 0.8), rgba(30, 58, 95, 0.7)), url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=2070&auto=format&fit=crop');
+    height: 70vh;
+    background: linear-gradient(rgba(44, 95, 133, 0.9), rgba(44, 95, 133, 0.8)), url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=2070');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -119,149 +92,39 @@ nav a:hover {
     color: var(--white);
     padding: 20px;
 }
+.hero h1 { color: var(--white); font-size: 3rem; margin-bottom: 15px; }
 
-.hero-content {
-    max-width: 800px;
-}
-
-.hero h1 {
-    font-size: 3.5rem; /* Big Bold Text */
-    color: var(--white);
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    color: rgba(255,255,255,0.9);
-    margin-bottom: 40px;
-}
-
-.hero-btns {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-
-.btn-primary {
-    background-color: var(--action-gold);
-    color: var(--white);
-    padding: 15px 40px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 1rem;
-    transition: 0.3s;
-}
-
-.btn-primary:hover {
-    background-color: #d97706;
-}
-
-.btn-secondary {
-    background-color: transparent;
-    color: var(--white);
-    border: 2px solid var(--white);
-    padding: 15px 40px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 1rem;
-    transition: 0.3s;
-}
-
-.btn-secondary:hover {
-    background-color: var(--white);
-    color: var(--primary-blue);
-}
-
-/* 4. Trust Banner (Logos) */
-.trust-banner {
-    background-color: var(--off-white);
-    padding: 30px 0;
-    text-align: center;
-    border-bottom: 1px solid var(--border-color);
-}
-.trust-banner p {
-    font-weight: 700;
-    color: var(--light-text);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.9rem;
-}
-
-/* 5. Services Section */
-.section-padding {
-    padding: 100px 5%;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.section-header h2 {
-    font-size: 2.5rem;
-    color: var(--primary-blue);
-    margin-bottom: 15px;
-}
-
-.section-header .divider {
-    height: 4px;
-    width: 80px;
-    background-color: var(--action-gold);
-    margin: 0 auto;
-}
+/* SERVICES GRID */
+.section-padding { padding: 80px 20px; text-align: center; }
 
 .grid-3 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 40px auto 0;
 }
 
 .service-card {
     background: var(--white);
-    padding: 40px 30px;
+    padding: 40px;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Soft shadow */
+    border-bottom: 5px solid var(--brand-light-blue); /* Bottom paint accent */
     transition: transform 0.3s;
-    border-top: 4px solid var(--primary-blue);
-    text-align: center;
 }
+.service-card:hover { transform: translateY(-5px); }
 
-.service-card:hover {
-    transform: translateY(-10px); /* Lifts up on hover */
-}
-
-.service-icon {
-    font-size: 3rem;
-    color: var(--accent-blue);
-    margin-bottom: 20px;
-    display: block;
-}
-
-.service-card h3 {
-    margin-bottom: 15px;
-    font-size: 1.4rem;
-}
-
-/* 6. Footer */
+/* FOOTER */
 footer {
-    background-color: var(--primary-blue);
+    background-color: var(--brand-dark-grey); /* Dark SFS color */
     color: var(--white);
     text-align: center;
-    padding: 50px 20px;
+    padding: 60px 20px;
+    border-top: 10px solid var(--brand-dark-blue);
 }
-footer p { color: rgba(255,255,255,0.7); }
 
-/* Mobile Adjustments */
 @media (max-width: 768px) {
-    .hero h1 { font-size: 2.2rem; }
-    .hero-btns { flex-direction: column; }
-    .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+    nav ul { display: none; } /* Simple mobile menu hide */
+    .hero h1 { font-size: 2rem; }
 }
