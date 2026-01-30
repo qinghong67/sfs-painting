@@ -1,162 +1,267 @@
-/* --- style.css --- */
+/* --- PREMIUM TRADE STYLE (Inspired by AR Painting) --- */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap');
 
 :root {
-    --primary-blue: #2c5f85;   /* Shield Blue */
-    --light-blue: #7bb0d6;     /* Paint Blue */
-    --dark-text: #1a1a1a;
+    /* Brand Colors */
+    --primary-blue: #1e3a5f;    /* Deep, professional Navy */
+    --accent-blue: #3b82f6;     /* Brighter Blue for icons/highlights */
+    --action-gold: #f59e0b;     /* Gold/Orange for Call-to-Actions (High conversion) */
+    
+    /* Neutrals */
+    --dark-text: #111827;
+    --light-text: #4b5563;
     --white: #ffffff;
-    --light-grey: #f4f4f4;
+    --off-white: #f3f4f6;
+    --border-color: #e5e7eb;
 }
 
+/* 1. Global Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    line-height: 1.6;
-    color: var(--dark-text);
+    font-family: 'Open Sans', sans-serif;
+    color: var(--light-text);
     background-color: var(--white);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Keeps footer at bottom */
+    line-height: 1.7;
+    overflow-x: hidden;
 }
 
-/* Header & Nav */
+h1, h2, h3, h4, h5 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--dark-text);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+/* 2. Sticky Premium Header */
 header {
     background-color: var(--white);
-    padding: 1rem 5%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    height: 80px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 800;
+    font-size: 1.8rem;
+    font-weight: 900;
     color: var(--primary-blue);
     text-transform: uppercase;
     text-decoration: none;
+    letter-spacing: -1px;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 30px;
+    align-items: center;
+}
+
+/* Hide Nav on very small screens (simple mobile fix) */
+@media (max-width: 768px) {
+    nav ul { display: none; } 
+    /* Ideally you'd add a hamburger menu here later */
 }
 
 nav a {
     text-decoration: none;
     color: var(--dark-text);
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
     transition: color 0.3s;
 }
 
-nav a:hover, nav a.active {
-    color: var(--primary-blue);
-    border-bottom: 2px solid var(--light-blue);
+nav a:hover {
+    color: var(--accent-blue);
 }
 
-/* Page Layouts */
-main {
-    flex: 1; /* Pushes footer down */
+/* The "Get a Quote" Button in Header */
+.cta-btn-header {
+    background-color: var(--action-gold);
+    color: var(--white);
+    padding: 10px 25px;
+    border-radius: 50px; /* Pill shape */
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    transition: transform 0.2s, background 0.3s;
 }
 
-.container {
-    padding: 60px 20px;
-    max-width: 1100px;
-    margin: 0 auto;
+.cta-btn-header:hover {
+    background-color: #d97706;
+    transform: translateY(-2px);
 }
 
-h1 { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 20px; }
-h2 { color: var(--primary-blue); margin-bottom: 15px; }
-p { margin-bottom: 15px; }
-
-/* Hero Section (Home Only) */
+/* 3. Hero Section (The "Wow" Factor) */
 .hero {
-    background: linear-gradient(rgba(44, 95, 133, 0.9), rgba(44, 95, 133, 0.9)), url('https://placehold.co/1200x600/2c5f85/FFFFFF/png?text=Painting+Background');
+    position: relative;
+    height: 85vh; /* Takes up most of the screen */
+    background: linear-gradient(rgba(30, 58, 95, 0.8), rgba(30, 58, 95, 0.7)), url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=2070&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
-    color: var(--white);
-    padding: 100px 20px;
-    text-align: center;
-}
-
-.btn {
-    display: inline-block;
-    background-color: var(--light-blue);
-    color: var(--white);
-    padding: 12px 30px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    margin-top: 20px;
-}
-.btn:hover { background-color: #5a9bc4; }
-
-/* Services Grid */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-.card {
-    background: var(--light-grey);
-    padding: 20px;
-    border-radius: 8px;
-    border-left: 5px solid var(--primary-blue);
-}
-
-/* Gallery Grid */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 15px;
-}
-.gallery-item {
-    background-color: #ddd;
-    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #666;
-    border-radius: 5px;
+    text-align: center;
+    color: var(--white);
+    padding: 20px;
 }
 
-/* Form */
-form {
-    max-width: 600px;
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 3.5rem; /* Big Bold Text */
+    color: var(--white);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 40px;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn-primary {
+    background-color: var(--action-gold);
+    color: var(--white);
+    padding: 15px 40px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #d97706;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+    padding: 15px 40px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: var(--white);
+    color: var(--primary-blue);
+}
+
+/* 4. Trust Banner (Logos) */
+.trust-banner {
+    background-color: var(--off-white);
+    padding: 30px 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+.trust-banner p {
+    font-weight: 700;
+    color: var(--light-text);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+/* 5. Services Section */
+.section-padding {
+    padding: 100px 5%;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+}
+
+.section-header .divider {
+    height: 4px;
+    width: 80px;
+    background-color: var(--action-gold);
     margin: 0 auto;
 }
-.form-group { margin-bottom: 15px; }
-label { display: block; margin-bottom: 5px; font-weight: bold; }
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-button {
-    background-color: var(--primary-blue);
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 1rem;
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Footer */
+.service-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Soft shadow */
+    transition: transform 0.3s;
+    border-top: 4px solid var(--primary-blue);
+    text-align: center;
+}
+
+.service-card:hover {
+    transform: translateY(-10px); /* Lifts up on hover */
+}
+
+.service-icon {
+    font-size: 3rem;
+    color: var(--accent-blue);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+/* 6. Footer */
 footer {
-    background-color: var(--dark-text);
+    background-color: var(--primary-blue);
     color: var(--white);
     text-align: center;
-    padding: 30px 20px;
-    margin-top: auto;
+    padding: 50px 20px;
+}
+footer p { color: rgba(255,255,255,0.7); }
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.2rem; }
+    .hero-btns { flex-direction: column; }
+    .btn-primary, .btn-secondary { width: 100%; text-align: center; }
 }
