@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Shield Finishing Services</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        .gallery-item img:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">SFS PAINTING</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html" style="color: var(--accent-blue);">Gallery</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="cta-btn-header">Get a Quote</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" style="height: 40vh; background-image: url('https://images.unsplash.com/photo-1574359411659-15573a21bc2c?q=80&w=2000&auto=format&fit=crop');">
+        <div class="hero-content">
+            <h1>Our Work</h1>
+            <p>See the difference professional finishing makes.</p>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1560185127-6a6a6873c52e?q=80&w=1000&auto=format&fit=crop" alt="Interior Living Room">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop" alt="Modern Kitchen">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1000&auto=format&fit=crop" alt="Exterior House">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1000&auto=format&fit=crop" alt="Feature Wall">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1595846519845-68e298c2edd8?q=80&w=1000&auto=format&fit=crop" alt="Bedroom Paint">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1000&auto=format&fit=crop" alt="Detail Work">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div style="margin-bottom: 20px; font-size: 1.5rem; font-weight: bold;">SFS PAINTING</div>
+        <p>&copy; 2026 Shield Finishing Services.</p>
+    </footer>
+
+</body>
+</html>
